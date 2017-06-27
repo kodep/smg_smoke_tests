@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :af_influencer_instagram_account, class: OpenStruct do
+  factory :st_influencer_instagram_account, class: OpenStruct do
     username 'user1'
     access_token '3504628112.c3ah2ee.b54fc10ssca746caba98c5655e8c5f06'
     instagram_id 350462801212112

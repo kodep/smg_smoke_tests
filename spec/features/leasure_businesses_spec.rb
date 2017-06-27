@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-context 'Initial', type: :feature, js: true do
+context 'Leasure Businesses', type: :feature, js: true do
 
-  it 'is initial spec' do
+  it 'login as leasure business' do
     user = FactoryGirl.create(:af_user, :publisher)
     publisher = FactoryGirl.create(:af_publisher)
     visit '/'
@@ -11,6 +11,6 @@ context 'Initial', type: :feature, js: true do
     page.find(:css, '#password').set('password')
     page.find(:css, 'div.modal-footer button.btn.btn-red').click
     sleep 1
-    screenshot_and_open_image
+    expect(page.has_content?(user.name)).to be_truthy
   end
 end

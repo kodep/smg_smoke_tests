@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :af_publisher, class: OpenStruct do
+  factory :st_publisher, class: OpenStruct do
     phone             { Faker::Code.ean }
     address           { Faker::Address.street_address }
     name              'Smoke Test Publisher'
@@ -12,32 +12,32 @@ FactoryGirl.define do
       (n - 1).times { cycle.next }
       cycle.peek
     end
-    association :hotel, factory: :af_publisher_ownership_hotel
-    association :restaurant, factory: :af_publisher_ownership_restaurant
+    association :hotel, factory: :st_publisher_ownership_hotel
+    association :restaurant, factory: :st_publisher_ownership_restaurant
 
-    association :user, :publisher, factory: :af_user
-    ownerships { |publisher| create_list :af_publisher_ownership, 2, type: publisher.ownership_type }
+    association :user, :publisher, factory: :st_user
+    ownerships { |publisher| create_list :st_publisher_ownership, 2, type: publisher.ownership_type }
 
-    factory :af_publisher_business, class: OpenStruct do
+    factory :st_publisher_business, class: OpenStruct do
       type    'Publisher::Business'
-      association :description, factory: :af_publisher_business_description
+      association :description, factory: :st_publisher_business_description
     end
 
-    factory :af_publisher_pr_agency, class: OpenStruct do
+    factory :st_publisher_pr_agency, class: OpenStruct do
       type    'Publisher::PrAgency'
-      association :description, factory: :af_publisher_pr_agency_description
+      association :description, factory: :st_publisher_pr_agency_description
     end
 
     trait(:n1) do
-      adverts { create_list :af_advert, 1, :first_advert }
+      adverts { create_list :st_advert, 1, :first_advert }
     end
 
     trait(:n2) do
-      adverts { create_list :af_advert, 1, :second_advert }
+      adverts { create_list :st_advert, 1, :second_advert }
     end
 
     trait(:n3) do
-      adverts { create_list :af_advert, 1, :third_advert }
+      adverts { create_list :st_advert, 1, :third_advert }
     end
 
     before(:create) do |publisher|

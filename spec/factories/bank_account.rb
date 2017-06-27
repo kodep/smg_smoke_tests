@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :af_bank_account, class: OpenStruct do
+  factory :st_bank_account, class: OpenStruct do
     sort_code       { Faker::Number.between(11, 99).to_s }
     bank_number     'GB29NWBK60161331926819'
     account_number  { Faker::Business.credit_card_number }

@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :af_package, class: OpenStruct do
+  factory :st_package, class: OpenStruct do
     packages = [
       {
         title: :free,

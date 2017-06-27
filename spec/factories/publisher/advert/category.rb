@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :af_publisher_advert_category, class: OpenStruct do
+  factory :st_publisher_advert_category, class: OpenStruct do
     trait :first_category do
       from                0
       to                  999

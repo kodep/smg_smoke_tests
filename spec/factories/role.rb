@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :af_role, class: OpenStruct do
+  factory :st_role, class: OpenStruct do
     trait :admin do
       name 'admin'
     end

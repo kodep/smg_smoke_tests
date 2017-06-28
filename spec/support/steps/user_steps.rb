@@ -1,11 +1,10 @@
 module UserSteps
-  def authorize
-    visit login_path
-    fill_in 'exampleInputEmail1', with: user.email
-    fill_in 'pswd', with: user.password
-    find('a[ng-click="login()"]').click
-    wait_for(lambda { current_pathname == login_path }) do
-      current_path_should_be(adverts_path)
-    end
+  def authorize(page)
+    visit '/'
+    page.all(:css, 'div.auth-links a.login').first.click
+    page.find(:css, '#e-mail').set(user.email)
+    page.find(:css, '#password').set('password')
+    page.find(:css, 'div.modal-footer button.btn.btn-red').click
+    sleep 1
   end
 end

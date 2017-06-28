@@ -2,15 +2,21 @@ require 'spec_helper'
 
 context 'Leasure Businesses', type: :feature, js: true do
 
-  it 'login as leasure business' do
-    user = FactoryGirl.create(:af_user, :publisher)
-    publisher = FactoryGirl.create(:af_publisher)
-    visit '/'
-    page.all(:css, 'div.auth-links a.login').first.click
-    page.find(:css, '#e-mail').set(user.email)
-    page.find(:css, '#password').set('password')
-    page.find(:css, 'div.modal-footer button.btn.btn-red').click
-    sleep 1
+  let(:user) { FactoryGirl.create(:st_user, :publisher) }
+  let(:publisher) { FactoryGirl.create(:st_publisher) }
+
+  before(:each) do
+    authorize(page)
+  end
+
+  it 'checks login as leasure business' do
     expect(page.has_content?(user.name)).to be_truthy
   end
+
+  it 'checks addition the option for LB to add other email addresses to send report to other emails as well' do
+    visit '#/transactions'
+    screenshot_and_open_image
+    # expect(page.has_content?(user.name)).to be_truthy
+  end
+
 end

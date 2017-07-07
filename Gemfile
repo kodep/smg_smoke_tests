@@ -11,3 +11,5 @@ gem 'activesupport'
 gem 'chromedriver-helper'
 gem 'faker'
 gem 'byebug'
+gem 'ruby-smpp', git: 'https://github.com/raykrueger/ruby-smpp'
+# gem "iconv", "~> 1.0.3"

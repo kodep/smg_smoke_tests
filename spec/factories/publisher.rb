@@ -29,15 +29,15 @@ FactoryGirl.define do
     end
 
     trait(:n1) do
-      adverts { create_list :st_advert, 1, :first_advert }
+      adverts { create_list :st_advert, 10, :first_advert }
     end
 
     trait(:n2) do
-      adverts { create_list :st_advert, 1, :second_advert }
+      adverts { create_list :st_advert, 10, :second_advert }
     end
 
     trait(:n3) do
-      adverts { create_list :st_advert, 1, :third_advert }
+      adverts { create_list :st_advert, 10, :third_advert }
     end
 
     before(:create) do |publisher|

@@ -14,7 +14,7 @@ FactoryGirl.define do
         price: 199.9,
         discount: 0
       },{
-        title: :platinum,
+        title: 'platinum per ad',
         price: 0,
         discount: 0
       }
